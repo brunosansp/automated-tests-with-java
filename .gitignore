@@ -8,9 +8,14 @@ target/
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
+.idea/sonarlint/*
+.idea/sonarlint/issuestore/*
 *.iws
 *.iml
 *.ipr
+*.pb
+misc.xml
+vcs.xml
 
 ### Eclipse ###
 .apt_generated
