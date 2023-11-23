@@ -43,17 +43,56 @@ class SimpleMathTest {
     
     @Test
     void testMultiplication() {
+        SimpleMath math = new SimpleMath();
+        double firstNumber = 2D;
+        double secondNumber = 5D;
+        Double actual = math.multiplication(firstNumber, secondNumber);
+        Double expected = 10D;
+        
+        assertEquals(expected, actual);
+        double unexpected = 8D;
+        assertNotEquals(unexpected, actual);
+        assertNotNull(actual);
     }
     
     @Test
     void testDivision() {
+        SimpleMath math = new SimpleMath();
+        double firstNumber = 8D;
+        double secondNumber = 2D;
+        Double actual = math.division(firstNumber, secondNumber);
+        Double expected = 4D;
+        Double unexpected = 3D;
+        
+        assertEquals(expected, actual);
+        assertNotNull(actual);
+        assertNotEquals(unexpected, actual);
     }
     
     @Test
     void testMean() {
+        SimpleMath math = new SimpleMath();
+        double firstNumber = 9D;
+        double secondNumber = 9D;
+        Double actual = math.mean(firstNumber, secondNumber);
+        Double expected = 9D;
+        Double unexpected = 10D;
+        
+        assertNotNull(actual);
+        assertEquals(expected, actual);
+        assertNotEquals(unexpected, actual);
     }
     
     @Test
     void testSquareRoot() {
+        SimpleMath math = new SimpleMath();
+        double number = 100D;
+        Double actual = math.squareRoot(number);
+        Double expected = 10D;
+        Double unexpected = 5D;
+        
+        assertNotNull(actual);
+        assertEquals(expected, actual);
+        assertNotEquals(unexpected, actual);
     }
 }
