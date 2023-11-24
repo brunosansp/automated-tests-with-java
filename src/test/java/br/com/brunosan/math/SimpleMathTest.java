@@ -1,21 +1,30 @@
 package br.com.brunosan.math;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.fail;
 
+@DisplayName("Test Math Operations in SimpleMath Class")
 class SimpleMathTest {
     
     @Test
-    void testSum() {
+    @DisplayName("Test sum 6.2 + 2 = 8.2")
+    void testSum_When_SixDotTwoIdAddedByTwo_ShouldReturnEightDotTwo() {
+        // use tecnique GWT or AAA
+        // Given or Arrange
         SimpleMath math = new SimpleMath();
         double firstNumber = 6.2D;
         double secondNumber = 2D;
-        Double actual = math.sum(firstNumber, secondNumber);
         double expected = 8.2D;
         
+        // When or Act
+        Double actual = math.sum(firstNumber, secondNumber);
+        
+        // Then or Assert
         assertEquals(
             expected, actual, () -> "In the testSum(), "
                 + firstNumber + "+" + secondNumber
@@ -26,6 +35,7 @@ class SimpleMathTest {
     }
     
     @Test
+    @DisplayName("Test subtraction 6 - 2 = 4")
     void testSubtraction() {
         SimpleMath math = new SimpleMath();
         double firstNumber = 6D;
@@ -42,6 +52,7 @@ class SimpleMathTest {
     }
     
     @Test
+    @DisplayName("Test multiplication 2 * 5 = 10")
     void testMultiplication() {
         SimpleMath math = new SimpleMath();
         double firstNumber = 2D;
@@ -56,6 +67,7 @@ class SimpleMathTest {
     }
     
     @Test
+    @DisplayName("Test division 8 / 2 = 4")
     void testDivision() {
         SimpleMath math = new SimpleMath();
         double firstNumber = 8D;
@@ -69,7 +81,14 @@ class SimpleMathTest {
         assertNotEquals(unexpected, actual);
     }
     
+    // test[System Under Test]_[Condition or State Change]_[Expected Result]
     @Test
+    void testDivision_When_NumberIsDividedByZero_ShouldThrowArithmeticException() {
+        fail();
+    }
+    
+    @Test
+    @DisplayName("Test division (9 + 9)/2 = 9")
     void testMean() {
         SimpleMath math = new SimpleMath();
         double firstNumber = 9D;
@@ -84,6 +103,7 @@ class SimpleMathTest {
     }
     
     @Test
+    @DisplayName("Test squareRoot of 100 = 10")
     void testSquareRoot() {
         SimpleMath math = new SimpleMath();
         double number = 100D;

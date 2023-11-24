@@ -15,7 +15,6 @@ target/
 *.iml
 *.ipr
 *.pb
-misc.xml
 vcs.xml
 
 ### Eclipse ###
