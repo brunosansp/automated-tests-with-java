@@ -1,5 +1,10 @@
 package br.com.brunosan.math;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -11,12 +16,36 @@ import static org.junit.jupiter.api.Assertions.fail;
 @DisplayName("Test Math Operations in SimpleMath Class")
 class SimpleMathTest {
     
+    private SimpleMath math;
+    
+    @BeforeAll
+    static void setup() {
+        System.out.println("Running @BeforeAll method!");
+    }
+    
+    @AfterAll
+    static void cleanup() {
+        System.out.println("Running @AfterAll method!");
+    }
+    
+    @BeforeEach
+    void beforeEachMethod() {
+        math = new SimpleMath();
+        System.out.println("Running @BeforeEach method!");
+    }
+    
+    @AfterEach
+    void afterEachMethod() {
+        System.out.println("Running @AfterEach method!");
+    }
+    
     @Test
     @DisplayName("Test sum 6.2 + 2 = 8.2")
     void testSum_When_SixDotTwoIdAddedByTwo_ShouldReturnEightDotTwo() {
+        System.out.println("Test sum 6.2 + 2 = 8.2");
+        
         // use tecnique GWT or AAA
         // Given or Arrange
-        SimpleMath math = new SimpleMath();
         double firstNumber = 6.2D;
         double secondNumber = 2D;
         double expected = 8.2D;
@@ -37,7 +66,8 @@ class SimpleMathTest {
     @Test
     @DisplayName("Test subtraction 6 - 2 = 4")
     void testSubtraction() {
-        SimpleMath math = new SimpleMath();
+        System.out.println("Test subtraction 6 - 2 = 4");
+        
         double firstNumber = 6D;
         double secondNumber = 2D;
         
@@ -54,7 +84,8 @@ class SimpleMathTest {
     @Test
     @DisplayName("Test multiplication 2 * 5 = 10")
     void testMultiplication() {
-        SimpleMath math = new SimpleMath();
+        System.out.println("Test multiplication 2 * 5 = 10");
+        
         double firstNumber = 2D;
         double secondNumber = 5D;
         Double actual = math.multiplication(firstNumber, secondNumber);
@@ -69,7 +100,8 @@ class SimpleMathTest {
     @Test
     @DisplayName("Test division 8 / 2 = 4")
     void testDivision() {
-        SimpleMath math = new SimpleMath();
+        System.out.println("Test division 8 / 2 = 4");
+        
         double firstNumber = 8D;
         double secondNumber = 2D;
         Double actual = math.division(firstNumber, secondNumber);
@@ -82,15 +114,19 @@ class SimpleMathTest {
     }
     
     // test[System Under Test]_[Condition or State Change]_[Expected Result]
+    @Disabled
     @Test
+    @DisplayName("Test division by zero")
     void testDivision_When_NumberIsDividedByZero_ShouldThrowArithmeticException() {
+        System.out.println("Test division by zero");
         fail();
     }
     
     @Test
     @DisplayName("Test division (9 + 9)/2 = 9")
     void testMean() {
-        SimpleMath math = new SimpleMath();
+        System.out.println("Test division (9 + 9)/2 = 9");
+        
         double firstNumber = 9D;
         double secondNumber = 9D;
         Double actual = math.mean(firstNumber, secondNumber);
@@ -105,7 +141,8 @@ class SimpleMathTest {
     @Test
     @DisplayName("Test squareRoot of 100 = 10")
     void testSquareRoot() {
-        SimpleMath math = new SimpleMath();
+        System.out.println("Test squareRoot of 100 = 10");
+        
         double number = 100D;
         Double actual = math.squareRoot(number);
         Double expected = 10D;
@@ -114,5 +151,16 @@ class SimpleMathTest {
         assertNotNull(actual);
         assertEquals(expected, actual);
         assertNotEquals(unexpected, actual);
+    }
+    
+    // test[System Under Test]_[Condition or State Change]_[Expected Result]
+    @Disabled("TODO: We need still work on it!") // ignora o teste
+    @Test
+    @DisplayName("Display Name")
+    void testABCD_When_XYZ_Should() {
+        System.out.println("Test BDD");
+        // Given / Arrange
+        // When / Act
+        // Then / Assert
     }
 }
