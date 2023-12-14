@@ -5,20 +5,20 @@ import br.com.brunosan.service.CourseService;
 import java.util.ArrayList;
 import java.util.List;
 
-// SUT - System (Method) Under Test
+// CourseBusiness = SUT - System (Method) Under Test
 public class CourseBusiness {
     
-    private final CourseService service;
+    // CourseService is a Dependency
+    private CourseService service;
     
     public CourseBusiness(CourseService service) {
         this.service = service;
     }
     
     public List<String> retrieveCoursesRelatedToSpring(String student) {
+        
         var filteredCourses = new ArrayList<String>();
-        
-        if ("Foo Bar".equals(student)) return filteredCourses;
-        
+        if("Foo Bar".equals(student)) return filteredCourses;
         var allCourses = service.retrieveCourses(student);
         
         for (String course : allCourses) {
@@ -29,4 +29,5 @@ public class CourseBusiness {
         
         return filteredCourses;
     }
+    
 }
