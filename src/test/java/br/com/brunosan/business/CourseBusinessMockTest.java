@@ -16,19 +16,17 @@ import static org.mockito.Mockito.when;
 class CourseBusinessMockTest {
     
     CourseService mockService;
-    private CourseBusiness business;
+    CourseBusiness business;
+    List<String> courses;
     
     @BeforeEach
-    void setUp() {
+    void setup() {
+        
+        // Given / Arrange
         mockService = mock(CourseService.class);
         business = new CourseBusiness(mockService);
-    }
-    
-    @Test
-    @DisplayName("User test that contains related course")
-    void testCoursesRelatedToSpring_When_UsingAMock() {
-        // Given / Act
-        List<String> courses = Arrays.asList(
+        
+        courses = Arrays.asList(
             "REST API's RESTFul do 0 à Azure com ASP.NET Core 5 e Docker",
             "Agile Desmistificado com Scrum, XP, Kanban e Trello",
             "Spotify Engineering Culture Desmistificado",
@@ -41,12 +39,14 @@ class CourseBusinessMockTest {
             "Kotlin para DEV's Java: Aprenda a Linguagem Padrão do Android",
             "Microsserviços do 0 com Spring Cloud, Kotlin e Docker"
         );
-        
+    }
+    
+    @Test
+    void testCoursesRelatedToSpring_When_UsingAMock() {
+        // Given / Arrange
         when(mockService.retrieveCourses("Bruno")).thenReturn(courses);
-        
         // When / Act
         var filteredCourses = business.retrieveCoursesRelatedToSpring("Bruno");
-        
         // Then / Assert
         assertEquals(4, filteredCourses.size());
     }
