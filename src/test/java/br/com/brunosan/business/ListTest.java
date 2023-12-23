@@ -53,7 +53,8 @@ class ListTest {
         // Given / Arrange
         var list = mock(List.class);
         
-        // If you are using argument matchers, all arguments
+        // If you are using argument
+        // matchers, all arguments
         // have to be provided by matchers.
         when(list.get(anyInt())).thenReturn("Erudio");
         
@@ -62,4 +63,19 @@ class ListTest {
         assertEquals("Erudio", list.get(anyInt()));
     }
     
+    @Test
+    void testMockingList_When_ThrowsAnException() {
+        // Given / Arrange
+        var list = mock(List.class);
+        
+        // If you are using argument
+        // matchers, all arguments
+        // have to be provided by matchers.
+        when(list.get(anyInt())).thenThrow(new RuntimeException("Foo Bar!!"));
+        
+        // When / Act & Then / Assert
+        assertThrows(RuntimeException.class, () -> {
+            list.get(anyInt());
+        }, () -> "Should have throw an RuntimeException");
+    }
 }
